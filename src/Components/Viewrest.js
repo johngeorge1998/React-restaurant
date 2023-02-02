@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import { ListGroup } from 'react-bootstrap';
 import Restop from './Restop';
+import Restreview from './Restreview';
 
 
 function Viewrest() {
@@ -37,19 +38,22 @@ function Viewrest() {
         {
                viewrest?(
                <Row>
-                    <Col>
+                    <Col md={3}>
                     <Image src={viewrest.photograph} style={{width:'500px',height:'650px'}} fluid/>
                     </Col>
-                    <Col>
+                    <Col md={8}>
+                      <h1>{viewrest.name}</h1>
                     <ListGroup>
       
       <ListGroup.Item variant="dark">Id :{viewrest.id}</ListGroup.Item>
       <ListGroup.Item  variant="dark">Name :{viewrest.name} </ListGroup.Item>
+      <ListGroup.Item variant="dark">Cuisine type: :{viewrest.cuisine_type}</ListGroup.Item>
       <ListGroup.Item  variant="dark">Address :{viewrest.address}</ListGroup.Item>
       <ListGroup.Item  variant="dark">neighborhood :{viewrest.neighborhood}</ListGroup.Item>
-      <ListGroup.Item  variant="dark">operating-hours :</ListGroup.Item>
-      <ListGroup.Item  variant="dark">reviews:</ListGroup.Item>
     </ListGroup>
+    <><Restop op={viewrest.operating_hours}/></>
+       <><Restreview review={viewrest.reviews}/></>
+                
                     </Col>
                 </Row>
                ):'null'
@@ -58,6 +62,7 @@ function Viewrest() {
 
     </div>
   )
+  
 }
 
 export default Viewrest
